@@ -30,7 +30,7 @@ Requisitos para realizar la integración:
 <img src="docs/step2.png" width=800 />
 </div>
 
-6. Nuevamente considerando que tu usuario de GitHub es `username` (substituir en la URL por el correcto), acceder a https://username-mp-ecommerce-php.herokuapp.com/ y validar que la app esté corriendo. Deberás visualizar algo como lo siguiente
+6. Nuevamente considerando que tu usuario de GitHub es `username` (substituir en la URL por el correcto), acceder a https://username-mp-ecommerce-php.herokuapp.com/ y validar que la app esté corriendo. Deberás visualizar algo como lo siguiente :
 
 <div style="text-align: center;" >
 <img src="docs/step3.png" width=800 />
