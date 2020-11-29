@@ -1,3 +1,46 @@
+<?php 
+    require __DIR__ .  '/extensiones/vendor/autoload.php';
+
+    MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
+
+    $preference = new MercadoPago\Preference();
+    $payer = new MercadoPago\Payer();
+    $preference->payment_methods = array(
+        "excluded_payment_methods" => array(
+          array("id" => "amex")
+        ),
+        "excluded_payment_types" => array(
+          array("id" => "atm")
+        ),
+        "installments" => 6
+      );
+
+      $payer->name = "Lalo";
+      $payer->surname = "Landa";
+      $payer->email = "test_user_81131286@testuser.com";
+      $payer->phone = array(
+        "area_code" => "52",
+        "number" => "5549737300"
+      );
+      
+      $payer->address = array(
+        "street_name" => "Insurgentes Sur",
+        "street_number" => 1602,
+        "zip_code" => "03940"
+      );
+
+    $item = new MercadoPago\Item();
+    $item->id = "1234";
+    $item->title = $_POST['title'];
+    $item->description = "Dispositivo móvil de Tienda e-commerce";
+    $item->picture_url = "http://localhost/mp-ecommerce-php/" . $_POST['img'];
+    $item->quantity = $_POST['unit'];
+    $item->unit_price = $_POST['price'];
+    $item->external_reference = "eduardo.hdzdelarosa@gmail.com";
+    $preference->items = array($item);
+    $preference->save();
+
+?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -130,7 +173,9 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    <a  href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
+                              </body>
+                            </html>
                                 </div>
                             </div>
                         </div>
