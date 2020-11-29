@@ -33,7 +33,6 @@
     $item->id = "1234";
     $item->title = $_POST['title'];
     $item->description = "Dispositivo móvil de Tienda e-commerce";
-    $item->picture_url = "http://localhost/mp-ecommerce-php/" . $_POST['img'];
     $item->quantity = $_POST['unit'];
     $item->unit_price = $_POST['price'];
     $item->external_reference = "eduardo.hdzdelarosa@gmail.com";
